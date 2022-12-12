@@ -1,26 +1,53 @@
 const buttons = document.querySelectorAll('.btn');
+const resultRight = document.querySelector('.resultRight');
+const resultWrong = document.querySelector('.resultWrong');
+const highNumber = document.querySelector('.highNumber');
+const highCount = document.querySelector('.highCount');
 
-randomColor();
+function checkEqual(elem, color) {
+    let highNumbers = +(highNumber.innerHTML);
+    let highCounts = +(highCount.innerHTML);
+    if (elem.innerHTML === color) {
+        
+        highNumbers > highCounts ? highNumbers : highNumbers += 1 ;
+        highCounts += 1;
 
-for (const button of buttons) {
-    button.addEventListener('click', () => checkEqual(button));
-    button.removeEventListener('click', () => checkEqual(button));
+        highNumber.innerHTML = highNumbers;
+        highCount.innerHTML = highCounts;
+
+        randomBackground(color);
+        return resultRight.classList.remove('hide');
+    } 
+    highCount.innerHTML = 0;
+    randomBackground(color);
+    resultRight.classList.add('hide');
+    return resultWrong.classList.remove('hide');
 }
 
-function checkEqual(elem) {
-    if (elem.innerHTML === '#') {
-       return alert("Yes")
-    } alert("No")
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+function randomBackground() {
+    let index = Array.from(buttons);
+
+    let background = index[0].innerHTML = getRandomColor();
+    index[1].innerHTML = getRandomColor();
+    index[2].innerHTML = getRandomColor();
+    
+    document.body.style.background = background;
+
+    for (const button of buttons) {
+        const checkingFunction = () => {
+            checkEqual(button, background)
+        }
+        button.addEventListener('click', checkingFunction);
+    }
 }
 
-
-function randomColor() {
-    const bgColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-    document.body.style.background = bgColor;
-}
-
-
-function result(event) {
-    event.target.classList.add('hide')
-}
-result();
+randomBackground();
