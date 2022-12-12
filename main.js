@@ -44,7 +44,7 @@ function randomBackground() {
 
     for (const button of buttons) {
         const checkingFunction = () => {
-            checkEqual(button, background)
+            checkEqual(button, background);
         }
         button.addEventListener('click', checkingFunction);
     }
