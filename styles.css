@@ -15,7 +15,7 @@
 .title {
     font-family: 'Montserrat', sans-serif;
     font-size: 65px;
-    font-weight: 900;
+    font-weight: 600;
     color: white;
 }
 
@@ -35,10 +35,12 @@
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
     width: 200px;
     height: 50px;
     margin: 30px 50px;

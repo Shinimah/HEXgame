@@ -2,52 +2,78 @@ const buttons = document.querySelectorAll('.btn');
 const resultRight = document.querySelector('.resultRight');
 const resultWrong = document.querySelector('.resultWrong');
 const highNumber = document.querySelector('.highNumber');
-const highCount = document.querySelector('.highCount');
+const сount = document.querySelector('.highCount');
 
-function checkEqual(elem, color) {
-    let highNumbers = +(highNumber.innerHTML);
-    let highCounts = +(highCount.innerHTML);
-    if (elem.innerHTML === color) {
-        
-        highNumbers > highCounts ? highNumbers : highNumbers += 1 ;
-        highCounts += 1;
+let color;
+let currentColor;
+let randomIndex;
 
-        highNumber.innerHTML = highNumbers;
-        highCount.innerHTML = highCounts;
+initiateButtonHandlers();
+randomBackground();
+buttonColor();
 
-        randomBackground(color);
-        return resultRight.classList.remove('hide');
-    } 
-    highCount.innerHTML = 0;
-    randomBackground(color);
-    resultRight.classList.add('hide');
-    return resultWrong.classList.remove('hide');
+function checkEqual(elem) {
+    let highScore = +(highNumber.innerHTML);
+    let score = +(сount.innerHTML);
+    
+    if (elem.innerHTML === currentColor) {
+        highScore > score ? highScore : highScore += 1 ;
+        score += 1;
+
+        highNumber.innerHTML = highScore;
+        сount.innerHTML = score;
+
+        resultRight.classList.remove('hide');
+        resultWrong.classList.add('hide');
+    } else {  
+        сount.innerHTML = 0;
+
+        resultRight.classList.add('hide'); 
+        resultWrong.classList.remove('hide');
+    }
+    randomBackground();
+    buttonColor();
 }
 
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
-    let color = '#';
+    color = '#';
+
     for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
+
     return color;
   }
 
 function randomBackground() {
-    let index = Array.from(buttons);
+    currentColor = getRandomColor();
+    document.body.style.background = currentColor;
+}
 
-    let background = index[0].innerHTML = getRandomColor();
-    index[1].innerHTML = getRandomColor();
-    index[2].innerHTML = getRandomColor();
+function buttonColor() {
+    let indexButton = Array.from(buttons);
+
+    randomIndexButton();
     
-    document.body.style.background = background;
+    indexButton[0].innerHTML = getRandomColor();
+    indexButton[1].innerHTML = getRandomColor();
+    indexButton[2].innerHTML = getRandomColor();
 
+    indexButton[randomIndex].innerHTML = currentColor;
+}
+
+function randomIndexButton() {
+    randomIndex = Math.round(Math.random()*2);
+    
+    return randomIndex;
+}
+
+function initiateButtonHandlers() {
     for (const button of buttons) {
         const checkingFunction = () => {
-            checkEqual(button, background);
+            checkEqual(button);
         }
         button.addEventListener('click', checkingFunction);
     }
 }
-
-randomBackground();
