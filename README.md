@@ -6,3 +6,6 @@ Created by
   <li>HTML</li>
   <li>CSS</li>
 </ul>
+
+## Интерфейс игры
+![Image alt](https://github.com/Shinimah/HEXgame/blob/master/HEXgame.png)
