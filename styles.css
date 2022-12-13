@@ -1,58 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@600&family=Quicksand:wght@700&family=Red+Hat+Display:wght@500&display=swap');
 
 .body {
+    font-family: 'Montserrat', sans-serif;
     display:flex;
     justify-content: center;
+    color: white;
     max-width: 2000px;
 }
 
 .main {
     max-width: 1200px;
     text-align: center;
+    font-weight: 500;
     margin-top: 200px;
 }
 
 .title {
-    font-family: 'Montserrat', sans-serif;
     font-size: 65px;
-    font-weight: 600;
-    color: white;
 }
 
 .score {
     margin: 60px;
     text-align: right;
-}
-
-.highscore {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.count {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 25px;
 }
 
 .btn {
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     font-size: 25px;
     width: 200px;
     height: 50px;
     margin: 30px 50px;
     border: solid 1px black;
-    border-radius: 9px;
+    border-radius: 10px;
 }
 
 .result {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
     font-size: 35px;
-    font-weight: 900;
 }
 
 .hide {
