@@ -11,17 +11,17 @@
     <main class="main">
         <h1 class="title">Угадай HEX фона</h1>
         <section class="score">
-            <h3 class="highscore">Рекорд: <span class="highNumber">0</span></h3>
-            <h3 class="count">Счёт: <span class="highCount">0</span></h3>
+            <h3>Рекорд: <span id="highscore" class="score__number">0</span></h3>
+            <h3>Счёт: <span id="count" class="score__number">0</span></h3>
         </section>
         <section class="guess">
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
+            <button class="guess__btn"></button>
+            <button class="guess__btn"></button>
+            <button class="guess__btn"></button>
         </section>
         <section class="result">
-            <p class="resultRight hide">Угадал</p>
-            <p class="resultWrong hide">Мимо</p>
+            <p class="result__right _hide">Угадал</p>
+            <p class="result__wrong _hide">Мимо</p>
         </section>
     </main>
     <script src="./main.js"></script>

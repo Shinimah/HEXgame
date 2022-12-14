@@ -1,8 +1,8 @@
-const buttons = document.querySelectorAll('.btn');
-const resultRight = document.querySelector('.resultRight');
-const resultWrong = document.querySelector('.resultWrong');
-const highNumber = document.querySelector('.highNumber');
-const сount = document.querySelector('.highCount');
+const buttons = document.querySelectorAll('.guess__btn');
+const resultRight = document.querySelector('.result__right');
+const resultWrong = document.querySelector('.result__wrong');
+const highNumber = document.querySelector('#highscore');
+const сount = document.querySelector('#count');
 
 let color;
 let currentColor;
@@ -23,13 +23,13 @@ function checkEqual(elem) {
         highNumber.innerHTML = highScore;
         сount.innerHTML = score;
 
-        resultRight.classList.remove('hide');
-        resultWrong.classList.add('hide');
+        resultRight.classList.remove('_hide');
+        resultWrong.classList.add('_hide');
     } else {  
         сount.innerHTML = 0;
 
-        resultRight.classList.add('hide'); 
-        resultWrong.classList.remove('hide');
+        resultRight.classList.add('_hide'); 
+        resultWrong.classList.remove('_hide');
     }
     randomBackground();
     buttonColor();

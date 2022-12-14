@@ -5,6 +5,7 @@ Created by
   <li>JavaScript</li>
   <li>HTML</li>
   <li>CSS</li>
+  <li>БЭМ</li>
 </ul>
 
 ## Интерфейс игры
